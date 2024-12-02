@@ -9,9 +9,10 @@
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-          "uri": "https://raw.githubusercontent.com/oluwafemiitc/ARM-Templates/refs/heads/main/storage-account-template.json",
+          "uri": "https://raw.githubusercontent.com/Ashwini2593/ARM-Templates/refs/heads/main/storage-account-template.json",
           "contentVersion": "1.0.0.0"
         }
+      }  
     },
     {
       "type": "Microsoft.Resources/deployments",
@@ -20,7 +21,7 @@
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-          "uri": "https://raw.githubusercontent.com/oluwafemiitc/ARM-Templates/refs/heads/main/vnet-template.json",
+          "uri": "https://raw.githubusercontent.com/Ashwini2593/ARM-Templates/refs/heads/main/vnet-template.json",
           "contentVersion": "1.0.0.0"
         }
       }

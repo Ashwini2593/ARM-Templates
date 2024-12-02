@@ -5,8 +5,8 @@
     {
       "type": "Microsoft.Storage/storageAccounts",
       "apiVersion": "2021-02-01",
-      "name": "saaztraininguks",
-      "location": "East US",
+      "name": "itctraininguks",
+      "location": "UK South",
       "sku": { "name": "Standard_LRS" },
       "kind": "StorageV2",
       "properties": {}
