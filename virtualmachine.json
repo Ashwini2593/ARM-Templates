@@ -11,6 +11,7 @@
     "adminPassword": { "type": "securestring" } 
 
   }, 
+// password: MySecureP@ssw0rd123
 
   "resources": [ 
 

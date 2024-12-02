@@ -5,8 +5,13 @@
     {
       "type": "Microsoft.Network/virtualNetworks",
       "apiVersion": "2021-02-01",
+<<<<<<< HEAD
       "name": "itcVNet-Training2",
       "location": "UK South",
+=======
+      "name": "itcVNet-Traininguk",
+      "location": "UK South",
+>>>>>>> b21cdd346e9cbe5d49c0c36766214e4f4a64b345
       "properties": {
         "addressSpace": { "addressPrefixes": ["10.0.0.0/16"] },
         "subnets": [

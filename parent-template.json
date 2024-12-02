@@ -25,7 +25,33 @@
           "contentVersion": "1.0.0.0"
         }
       }
-    }
+    },
+  {
+
+    "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2021-04-01",
+      "name": "vmDeployment",
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "https://raw.githubusercontent.com/Ashwini2593/ARM-Templates/refs/heads/main/virtualmachine.json",
+          "contentVersion": "1.0.0.0"
+        }
+      }
+  },
+  {
+
+    "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2021-04-01",
+      "name": "nicDeployment",
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "https://raw.githubusercontent.com/Ashwini2593/ARM-Templates/refs/heads/main/nic.json",
+          "contentVersion": "1.0.0.0"
+        }
+      }
+  }
   ]
 }
 
