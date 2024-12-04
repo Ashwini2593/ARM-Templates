@@ -1,27 +1,27 @@
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-      {
-        "type": "Microsoft.Network/networkInterfaces",
-        "apiVersion": "2021-08-01",
-        "name": "newnic123",
-        "location": "UK South",
-        "properties": {
-          "ipConfigurations": [
-            {
-              "name": "ipconfig11",
-              "properties": {
-                "subnet": {
-                  "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', 'itcVNet-Training2', 'Frontend')]"
-                },
-                "privateIPAllocationMethod": "Dynamic"
-              }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "nicName": { "type": "string" },
+    "subnetId": { "type": "string" }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Network/networkInterfaces",
+      "apiVersion": "2020-11-01",
+      "name": "[parameters('nicName')]",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "ipConfigurations": [
+          {
+            "name": "ipconfig1",
+            "properties": {
+              "subnet": { "id": "[parameters('subnetId')]" },
+              "privateIPAllocationMethod": "Dynamic"
             }
-          ]
-        }
-        
+          }
+        ]
       }
-    ]
-  }
-  
+    }
+  ]
+}

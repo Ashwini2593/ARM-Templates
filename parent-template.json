@@ -1,57 +1,52 @@
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vnetParams": { "type": "object" },
+    "nicParams": { "type": "object" },
+    "vmParams": { "type": "object" }
+  },
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2021-04-01",
-      "name": "storageDeployment",
-      "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-          "uri": "https://raw.githubusercontent.com/Ashwini2593/ARM-Templates/refs/heads/main/storage-account-template.json",
-          "contentVersion": "1.0.0.0"
-        }
-      }  
-    },
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2021-04-01",
-      "name": "vnetDeployment",
+      "name": "vnetdeployment",
       "properties": {
         "mode": "Incremental",
         "templateLink": {
           "uri": "https://raw.githubusercontent.com/Ashwini2593/ARM-Templates/refs/heads/main/vnet-template.json",
           "contentVersion": "1.0.0.0"
-        }
+        },
+        "parameters": "[parameters('vnetParams')]"
       }
     },
-  {
-
-    "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2021-04-01",
-      "name": "vmDeployment",
-      "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-          "uri": "https://raw.githubusercontent.com/Ashwini2593/ARM-Templates/refs/heads/main/virtualmachine.json",
-          "contentVersion": "1.0.0.0"
-        }
-      }
-  },
-  {
-
-    "type": "Microsoft.Resources/deployments",
+    {
+      "type": "Microsoft.Resources/deployments",
       "apiVersion": "2021-04-01",
       "name": "nicDeployment",
+      "dependsOn": [ "vnetDeployment" ],
       "properties": {
         "mode": "Incremental",
         "templateLink": {
           "uri": "https://raw.githubusercontent.com/Ashwini2593/ARM-Templates/refs/heads/main/nic.json",
           "contentVersion": "1.0.0.0"
-        }
+        },
+        "parameters": "[parameters('nicParams')]"
       }
-  }
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2021-04-01",
+      "name": "vmDeployment",
+      "dependsOn": [ "nicDeployment" ],
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "https://raw.githubusercontent.com/Ashwini2593/ARM-Templates/refs/heads/main/virtualmachine.json",
+          "contentVersion": "1.0.0.0"
+        },
+        "parameters": "[parameters('vmParams')]"
+      }
+    }
   ]
 }
-

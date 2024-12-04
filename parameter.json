@@ -1,10 +1,19 @@
 {
-    "adminUsername": {
-      "value": "yourAdminUsername"
-    },
-    "adminPassword": {
-      "value": "yourAdminPassword"
-    }
+  "vnetParams": {
+    "vnetName": "myVnet33",
+    "addressPrefix": "10.0.0.0/16",
+    "subnetName": "mySubnet33",
+    "subnetPrefix": "10.0.0.0/24"
+  },
+  "nicParams": {
+    "nicName": "myNic34",
+    "subnetId": "[resourceId('Microsoft.Network/virtualNetworks/subnets', 'myVnet33', 'mySubnet33')]"
+  },
+  "vmParams": {
+    "vmName": "myVM553",
+    "adminUsername": "azureuser",
+    "adminPassword": "P@ssw0rd123",
+    "vmSize": "Standard_DS1_v2",
+    "nicId": "[resourceId('Microsoft.Network/networkInterfaces', 'myNic34')]"
   }
-  
-  
+}
